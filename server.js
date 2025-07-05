@@ -8,6 +8,10 @@ const db= mongoose.connection;
 db.on("error",(error)=>console.log(error));
 
 db.once('open',()=>console.log('database connected'));
+app.get('/', (req, res) => {
+  res.send('<h1>Welcome!</h1><p>Go to <a href="/subscriber">Subscribers</a></p>');
+});
+
 
 app.use(express.json());
 const SubscriberRouter = require('./Router/Subscriber.js');
